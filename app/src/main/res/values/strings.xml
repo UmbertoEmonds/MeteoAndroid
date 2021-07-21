@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Météo</string>
     <string name="enter_city">Saisissez votre ville</string>
+    <string name="search_meteo">Rechercher</string>
 </resources>

@@ -3,6 +3,8 @@ package fr.projet2.monprojetmeteo.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import fr.projet2.monprojetmeteo.R
@@ -15,18 +17,16 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mWeatherVM: WeatherViewModel
     private lateinit var mCityTV: TextView
+    private lateinit var mCityET: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mCityTV = findViewById(R.id.mCityTV)
+        mCityET = findViewById(R.id.saisirET)
 
         configureViewModels()
-
-        mWeatherVM.getWeatherFromCity("tourcoing").observe(this, {
-            updateUI(it)
-        })
     }
 
     fun configureViewModels(){
@@ -38,4 +38,9 @@ class MainActivity : AppCompatActivity() {
         mCityTV.text = weathers.list[0].name
     }
 
+    fun getMeteoFromCity(v: View){
+        mWeatherVM.getWeatherFromCity(mCityET.text.toString()).observe(this, {
+            updateUI(it)
+        })
+    }
 }
