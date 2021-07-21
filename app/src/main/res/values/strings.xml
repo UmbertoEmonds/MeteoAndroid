@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MonProjetMeteo</string>
+    <string name="app_name">Météo</string>
+    <string name="enter_city">Saisissez votre ville</string>
 </resources>

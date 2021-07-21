@@ -1,6 +1,6 @@
 package fr.projet2.monprojetmeteo.util
 
-import androidx.viewbinding.BuildConfig
+import fr.projet2.monprojetmeteo.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
