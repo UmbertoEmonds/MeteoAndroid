@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mWeatherVM: WeatherViewModel
     private lateinit var mCityTV: TextView
     private lateinit var mCityET: EditText
+    private lateinit var mDescriptionTV: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         mCityTV = findViewById(R.id.mCityTV)
         mCityET = findViewById(R.id.saisirET)
+        mDescriptionTV = findViewById(R.id.mDescriptionTV)
 
         configureViewModels()
     }
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     fun updateUI(weathers: Weathers){
         mCityTV.text = weathers.list[0].name
+        mDescriptionTV.text = "${weathers.list[0].weather[0].main} - ${weathers.list[0].weather[0].description}"
     }
 
     fun getMeteoFromCity(v: View){
